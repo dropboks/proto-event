@@ -1,0 +1,12 @@
+syntax = "proto3";
+package epb;
+
+option go_package = "github.com/dropboks/proto-event/pkg/epb";
+
+import "user/user-event.proto";
+
+message EventMessage {
+  oneof event {
+    uepb.UserEvent user_event = 1;
+  }
+}

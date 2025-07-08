@@ -123,7 +123,7 @@ type UserCreated struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	Id               string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	FullName         string                 `protobuf:"bytes,2,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty"`
-	Image            string                 `protobuf:"bytes,3,opt,name=image,proto3" json:"image,omitempty"`
+	Image            *string                `protobuf:"bytes,3,opt,name=image,proto3,oneof" json:"image,omitempty"`
 	Email            string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
 	Password         string                 `protobuf:"bytes,5,opt,name=password,proto3" json:"password,omitempty"`
 	Verified         bool                   `protobuf:"varint,6,opt,name=verified,proto3" json:"verified,omitempty"`
@@ -177,8 +177,8 @@ func (x *UserCreated) GetFullName() string {
 }
 
 func (x *UserCreated) GetImage() string {
-	if x != nil {
-		return x.Image
+	if x != nil && x.Image != nil {
+		return *x.Image
 	}
 	return ""
 }
@@ -215,7 +215,7 @@ type UserUpdated struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	Id               string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	FullName         string                 `protobuf:"bytes,2,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty"`
-	Image            string                 `protobuf:"bytes,3,opt,name=image,proto3" json:"image,omitempty"`
+	Image            *string                `protobuf:"bytes,3,opt,name=image,proto3,oneof" json:"image,omitempty"`
 	Email            string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
 	Password         string                 `protobuf:"bytes,5,opt,name=password,proto3" json:"password,omitempty"`
 	Verified         bool                   `protobuf:"varint,6,opt,name=verified,proto3" json:"verified,omitempty"`
@@ -270,8 +270,8 @@ func (x *UserUpdated) GetFullName() string {
 }
 
 func (x *UserUpdated) GetImage() string {
-	if x != nil {
-		return x.Image
+	if x != nil && x.Image != nil {
+		return *x.Image
 	}
 	return ""
 }
@@ -364,25 +364,27 @@ const file_user_user_event_proto_rawDesc = "" +
 	"\fuser_created\x18\x01 \x01(\v2\x11.uepb.UserCreatedH\x00R\vuserCreated\x126\n" +
 	"\fuser_updated\x18\x02 \x01(\v2\x11.uepb.UserUpdatedH\x00R\vuserUpdated\x126\n" +
 	"\fuser_deleted\x18\x03 \x01(\v2\x11.uepb.UserDeletedH\x00R\vuserDeletedB\a\n" +
-	"\x05event\"\xcc\x01\n" +
+	"\x05event\"\xdb\x01\n" +
 	"\vUserCreated\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1b\n" +
-	"\tfull_name\x18\x02 \x01(\tR\bfullName\x12\x14\n" +
-	"\x05image\x18\x03 \x01(\tR\x05image\x12\x14\n" +
+	"\tfull_name\x18\x02 \x01(\tR\bfullName\x12\x19\n" +
+	"\x05image\x18\x03 \x01(\tH\x00R\x05image\x88\x01\x01\x12\x14\n" +
 	"\x05email\x18\x04 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x05 \x01(\tR\bpassword\x12\x1a\n" +
 	"\bverified\x18\x06 \x01(\bR\bverified\x12,\n" +
-	"\x12two_factor_enabled\x18\a \x01(\bR\x10twoFactorEnabled\"\xeb\x01\n" +
+	"\x12two_factor_enabled\x18\a \x01(\bR\x10twoFactorEnabledB\b\n" +
+	"\x06_image\"\xfa\x01\n" +
 	"\vUserUpdated\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1b\n" +
-	"\tfull_name\x18\x02 \x01(\tR\bfullName\x12\x14\n" +
-	"\x05image\x18\x03 \x01(\tR\x05image\x12\x14\n" +
+	"\tfull_name\x18\x02 \x01(\tR\bfullName\x12\x19\n" +
+	"\x05image\x18\x03 \x01(\tH\x00R\x05image\x88\x01\x01\x12\x14\n" +
 	"\x05email\x18\x04 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x05 \x01(\tR\bpassword\x12\x1a\n" +
 	"\bverified\x18\x06 \x01(\bR\bverified\x12,\n" +
 	"\x12two_factor_enabled\x18\a \x01(\bR\x10twoFactorEnabled\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\b \x01(\x03R\tupdatedAt\"\x1d\n" +
+	"updated_at\x18\b \x01(\x03R\tupdatedAtB\b\n" +
+	"\x06_image\"\x1d\n" +
 	"\vUserDeleted\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02idB*Z(github.com/dropboks/proto-event/pkg/uepbb\x06proto3"
 
@@ -426,6 +428,8 @@ func file_user_user_event_proto_init() {
 		(*UserEvent_UserUpdated)(nil),
 		(*UserEvent_UserDeleted)(nil),
 	}
+	file_user_user_event_proto_msgTypes[1].OneofWrappers = []any{}
+	file_user_user_event_proto_msgTypes[2].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -15,7 +15,7 @@ message UserEvent {
 message UserCreated {
   string id = 1;
   string full_name = 2;
-  string image = 3;
+  optional string image = 3;
   string email = 4;
   string password = 5;
   bool verified = 6;
@@ -25,7 +25,7 @@ message UserCreated {
 message UserUpdated {
   string id = 1;
   string full_name = 2;
-  string image = 3;
+  optional string image = 3;
   string email = 4;
   string password = 5;
   bool verified = 6;

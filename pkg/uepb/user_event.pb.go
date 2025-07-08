@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.30.2
-// source: user/user-event.proto
+// source: user/user_event.proto
 
 package uepb
 
@@ -303,7 +303,7 @@ var File_user_user_event_proto protoreflect.FileDescriptor
 
 const file_user_user_event_proto_rawDesc = "" +
 	"\n" +
-	"\x15user/user-event.proto\x12\x04uepb\"\xbc\x01\n" +
+	"\x15user/user_event.proto\x12\x04uepb\"\xbc\x01\n" +
 	"\tUserEvent\x126\n" +
 	"\fuser_created\x18\x01 \x01(\v2\x11.uepb.UserCreatedH\x00R\vuserCreated\x126\n" +
 	"\fuser_updated\x18\x02 \x01(\v2\x11.uepb.UserUpdatedH\x00R\vuserUpdated\x126\n" +

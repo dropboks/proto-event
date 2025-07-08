@@ -1,9 +1,9 @@
 syntax = "proto3";
 package epb;
 
-option go_package = "github.com/dropboks/proto-event/pkg/epb";
+import "user/user_event.proto";
 
-import "user/user-event.proto";
+option go_package = "github.com/dropboks/proto-event/pkg/epb";
 
 message EventMessage {
   oneof event {

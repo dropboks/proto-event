@@ -92,7 +92,7 @@ var File_event_event_proto protoreflect.FileDescriptor
 
 const file_event_event_proto_rawDesc = "" +
 	"\n" +
-	"\x11event/event.proto\x12\x03epb\x1a\x15user/user-event.proto\"I\n" +
+	"\x11event/event.proto\x12\x03epb\x1a\x15user/user_event.proto\"I\n" +
 	"\fEventMessage\x120\n" +
 	"\n" +
 	"user_event\x18\x01 \x01(\v2\x0f.uepb.UserEventH\x00R\tuserEventB\a\n" +
